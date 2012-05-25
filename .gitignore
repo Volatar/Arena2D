@@ -14,5 +14,11 @@
 #compiler stuff
 *.pdb
 *.ilk
+*.sdf
+*.suo
 /Arena2D/Debug/
 /ipch/
+
+compiled bianaries
+*.exe
+/SFML-20-rc/cmake/Modules/FindSFML.cmake
