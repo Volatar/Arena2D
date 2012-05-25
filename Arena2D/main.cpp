@@ -46,38 +46,38 @@ int main(int argc, char **argv)
 
         }
 
-		if (sceneID = 0)
+		if (sceneID == 0)
 		{
 			//get player position
 			playerSpritePos = playerSprite.getPosition();
 
 			//change scene if needed
-			if (playerSpritePos.x <= 0)
+			if (playerSpritePos.y <= 0)
 				sceneID = 1;
-			if (playerSpritePos.y >= 600)
-				sceneID = 2;
-			if (playerSpritePos.y <= 600)
-				sceneID = 3;
 			if (playerSpritePos.x >= 800)
+				sceneID = 2;
+			if (playerSpritePos.x <= 0)
+				sceneID = 3;
+			if (playerSpritePos.y >= 600)
 				window.close();
 
 
 			//movement
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				playerSprite.move(0,-1);
+				playerSprite.move(0,-2);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				playerSprite.move(0,1);
+				playerSprite.move(0,2);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				playerSprite.move(1,0);
+				playerSprite.move(2,0);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				playerSprite.move(-1,0);
+				playerSprite.move(-2,0);
 		}
 
 
 		//display stuff
 		window.clear();
 
-		if (sceneID = 0)
+		if (sceneID == 0)
 		{
 			window.draw(mainBackground);
 			window.draw(playerSprite);
