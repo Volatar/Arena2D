@@ -16,13 +16,17 @@ int main(int argc, char **argv)
 	5 = game over?
 	*/
 
-	sf::Texture texture;
-	texture.loadFromFile("images/testsprite.png");
+	sf::Texture mainBackgroundTexture;
+	mainBackgroundTexture.loadFromFile("images/mainbackgroundsigns.png");
+	sf::Sprite mainBackground;
+	mainBackground.setTexture(mainBackgroundTexture);
+	mainBackground.setPosition(0.f, 0.f);
 
+	sf::Texture playerSpriteTexture;
+	playerSpriteTexture.loadFromFile("images/testsprite.png");
 	sf::Sprite playerSprite;
-	playerSprite.setTexture(texture);
+	playerSprite.setTexture(playerSpriteTexture);
 	playerSprite.setPosition(200.f, 100.f);
-	playerSprite.setOrigin(0, 0);
 	sf::Vector2f playerSpritePos;
 
     while ( window.isOpen() )
@@ -52,7 +56,10 @@ int main(int argc, char **argv)
 				sceneID = 1;
 			if (playerSpritePos.y >= 600)
 				sceneID = 2;
-			if (playerSpritePos.y <= 0
+			if (playerSpritePos.y <= 600)
+				sceneID = 3;
+			if (playerSpritePos.x >= 800)
+				window.close();
 
 
 			//movement
@@ -66,11 +73,15 @@ int main(int argc, char **argv)
 				playerSprite.move(-1,0);
 		}
 
+
+		//display stuff
 		window.clear();
 
 		if (sceneID = 0)
-		window.draw(playerSprite);
-
+		{
+			window.draw(mainBackground);
+			window.draw(playerSprite);
+		}
 
 
         window.display();
