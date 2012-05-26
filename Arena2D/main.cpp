@@ -3,7 +3,7 @@
 
 int main(int argc, char **argv)
 {
-    sf::RenderWindow window( sf::VideoMode(800, 600), "Chess by Volatar" );
+    sf::RenderWindow window( sf::VideoMode(800, 600), "Arena2D" );
 
 	//TODO: change sceneID to an enum for readability
 	int sceneID = 0;
@@ -46,6 +46,7 @@ int main(int argc, char **argv)
 
         }
 
+		//main area
 		if (sceneID == 0)
 		{
 			//get player position
@@ -71,6 +72,21 @@ int main(int argc, char **argv)
 				playerSprite.move(2,0);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				playerSprite.move(-2,0);
+		}
+
+		if (sceneID == 1)
+		{
+			//battle
+		}
+
+		if (sceneID == 2)
+		{
+			//shop
+		}
+
+		if (sceneID == 3)
+		{
+			// magic tower
 		}
 
 
