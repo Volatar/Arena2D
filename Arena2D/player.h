@@ -4,5 +4,6 @@ class player
 public:
 	player(void);
 	~player(void);
+
 };
 
