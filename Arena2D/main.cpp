@@ -5,26 +5,17 @@ int main(int argc, char **argv)
 {
     sf::RenderWindow window( sf::VideoMode(800, 600), "Arena2D" );
 
-	//TODO: change sceneID to an enum for readability
-	//int sceneID = 0;
-	/* sceneID
-	0 = main menu
-	1 = battle
-	2 = shop
-	3 = magic tower
-	4 = loot screen?
-	5 = game over?
-	*/
-
 	enum SCENE {MAINMENU, BATTLESELECT, BATTLE, BATTLERESULT, SHOP, MAGICTOWER, GAMEOVER};
 	SCENE Scene = MAINMENU;
 
+	//general background texture
 	sf::Texture backgroundTexture;
 	backgroundTexture.loadFromFile("images/background.png");
 	sf::Sprite background;
 	background.setTexture(backgroundTexture);
 	background.setPosition(0.f, 0.f);
 	
+	//main menu background texture
 	sf::Texture mainMenuBackgroundTexture;
 	mainMenuBackgroundTexture.loadFromFile("images/mainmenubackgroundsigns.png");
 	sf::Sprite mainMenuBackground;
@@ -78,13 +69,13 @@ int main(int argc, char **argv)
 				window.close();
 
 			//movement
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Up) )
 				playerSprite.move(0,-2);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Down) )
 				playerSprite.move(0,2);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Right) )
 				playerSprite.move(2,0);
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			if ( sf::Keyboard::isKeyPressed(sf::Keyboard::Left) )
 				playerSprite.move(-2,0);
 
 			//display
@@ -107,7 +98,9 @@ int main(int argc, char **argv)
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
 					window.close();
 
-				// other imputs here
+				// go back to main menu
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Space) )
+					Scene = MAINMENU;
 
 				// enemy choice
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num1) )
@@ -123,6 +116,18 @@ int main(int argc, char **argv)
 			window.draw(playerSprite);
 		}
 
+		// battle
+		if (Scene == BATTLE)
+		{
+
+		}
+
+		// battle result
+		if (Scene == BATTLERESULT)
+		{
+
+		}
+
 		// shop
 		if (Scene == SHOP)
 		{
@@ -133,6 +138,12 @@ int main(int argc, char **argv)
 		if (Scene == MAGICTOWER)
 		{
 			
+		}
+
+		// game over
+		if (Sene == GAMEOVER)
+		{
+
 		}
 
 
