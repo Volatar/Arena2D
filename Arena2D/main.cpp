@@ -16,18 +16,25 @@ int main(int argc, char **argv)
 	5 = game over?
 	*/
 
+	
 	sf::Texture mainBackgroundTexture;
 	mainBackgroundTexture.loadFromFile("images/mainbackgroundsigns.png");
 	sf::Sprite mainBackground;
 	mainBackground.setTexture(mainBackgroundTexture);
 	mainBackground.setPosition(0.f, 0.f);
 
+	//player sprite creation
 	sf::Texture playerSpriteTexture;
-	playerSpriteTexture.loadFromFile("images/testsprite.png");
+	playerSpriteTexture.loadFromFile("images/testplayersprite.png");
 	sf::Sprite playerSprite;
 	playerSprite.setTexture(playerSpriteTexture);
 	playerSprite.setPosition(200.f, 100.f);
 	sf::Vector2f playerSpritePos;
+
+	//enemy texture loading - sprite is created upon demand
+	sf::Texture playerSpriteTexture;
+	playerSpriteTexture.loadFromFile("images/testsprite.png");
+
 
     while ( window.isOpen() )
     {

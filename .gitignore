@@ -19,6 +19,9 @@
 /Arena2D/Debug/
 /ipch/
 
-compiled bianaries
+#compiled bianaries
 *.exe
+
+# Misc
 /SFML-20-rc/cmake/Modules/FindSFML.cmake
+*.opensdf
