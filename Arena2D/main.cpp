@@ -32,8 +32,8 @@ int main(int argc, char **argv)
 	sf::Vector2f playerSpritePos;
 
 	//enemy texture loading - sprite is created upon demand
-	sf::Texture playerSpriteTexture;
-	playerSpriteTexture.loadFromFile("images/testsprite.png");
+	sf::Texture enemySpriteTexture;
+	enemySpriteTexture.loadFromFile("images/testsprite.png");
 
 
     while ( window.isOpen() )
@@ -42,16 +42,15 @@ int main(int argc, char **argv)
         sf::Event event;
         while ( window.pollEvent(event) )
         {
-
 			// Window Closed
             if (event.type == sf::Event::Closed)
                 window.close();
 
-			// Escape key pressed
+			// Escape key pressed - closes game
 			if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
 				window.close();
-
         }
+
 
 		//main area
 		if (sceneID == 0)
@@ -69,7 +68,6 @@ int main(int argc, char **argv)
 			if (playerSpritePos.y >= 600)
 				window.close();
 
-
 			//movement
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 				playerSprite.move(0,-2);
@@ -81,19 +79,39 @@ int main(int argc, char **argv)
 				playerSprite.move(-2,0);
 		}
 
+		//battle
 		if (sceneID == 1)
 		{
-			//battle
+			playerSprite.setPosition(200.f, 100.f);
+
+			while ( window.pollEvent(event) )
+			{
+
+			// Window Closed
+            if (event.type == sf::Event::Closed)
+                window.close();
+
+			// Escape key pressed - closes game
+			if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
+				window.close();
+
+			// other imputs here
+			}
+
+			window.draw(mainBackground); //placeholder until battle background
+			window.draw(playerSprite);
 		}
 
+		//shop
 		if (sceneID == 2)
 		{
-			//shop
+			
 		}
 
+		// magic tower
 		if (sceneID == 3)
 		{
-			// magic tower
+			
 		}
 
 
