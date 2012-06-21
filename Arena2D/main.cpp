@@ -6,7 +6,7 @@ int main(int argc, char **argv)
     sf::RenderWindow window( sf::VideoMode(800, 600), "Arena2D" );
 
 	//TODO: change sceneID to an enum for readability
-	int sceneID = 0;
+	//int sceneID = 0;
 	/* sceneID
 	0 = main menu
 	1 = battle
@@ -16,12 +16,20 @@ int main(int argc, char **argv)
 	5 = game over?
 	*/
 
+	enum SCENE {MAINMENU, BATTLESELECT, BATTLE, BATTLERESULT, SHOP, MAGICTOWER, GAMEOVER};
+	SCENE Scene = MAINMENU;
+
+	sf::Texture backgroundTexture;
+	backgroundTexture.loadFromFile("images/background.png");
+	sf::Sprite background;
+	background.setTexture(backgroundTexture);
+	background.setPosition(0.f, 0.f);
 	
-	sf::Texture mainBackgroundTexture;
-	mainBackgroundTexture.loadFromFile("images/mainbackgroundsigns.png");
-	sf::Sprite mainBackground;
-	mainBackground.setTexture(mainBackgroundTexture);
-	mainBackground.setPosition(0.f, 0.f);
+	sf::Texture mainMenuBackgroundTexture;
+	mainMenuBackgroundTexture.loadFromFile("images/mainmenubackgroundsigns.png");
+	sf::Sprite mainMenuBackground;
+	mainMenuBackground.setTexture(mainBackgroundTexture);
+	mainMenuBackground.setPosition(0.f, 0.f);
 
 	//player sprite creation
 	sf::Texture playerSpriteTexture;
@@ -38,6 +46,7 @@ int main(int argc, char **argv)
 
     while ( window.isOpen() )
     {
+		window.clear();
 
         sf::Event event;
         while ( window.pollEvent(event) )
@@ -52,19 +61,19 @@ int main(int argc, char **argv)
         }
 
 
-		//main area
-		if (sceneID == 0)
+		// main menu
+		if (Scene == MAINMENU)
 		{
 			//get player position
 			playerSpritePos = playerSprite.getPosition();
 
 			//change scene if needed
 			if (playerSpritePos.y <= 0)
-				sceneID = 1;
+				Scene = BATTLESELECT;
 			if (playerSpritePos.x >= 800)
-				sceneID = 2;
+				Scene = SHOP;
 			if (playerSpritePos.x <= 0)
-				sceneID = 3;
+				Scene = MAGICTOWER;
 			if (playerSpritePos.y >= 600)
 				window.close();
 
@@ -77,54 +86,57 @@ int main(int argc, char **argv)
 				playerSprite.move(2,0);
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				playerSprite.move(-2,0);
+
+			//display
+			window.draw(mainMenuBackground);
+			window.draw(playerSprite);
 		}
 
-		//battle
-		if (sceneID == 1)
+		// battle setup
+		if (Scene == BATTLESELECT)
 		{
 			playerSprite.setPosition(200.f, 100.f);
 
 			while ( window.pollEvent(event) )
 			{
+				// Window Closed
+				if (event.type == sf::Event::Closed)
+				    window.close();
 
-			// Window Closed
-            if (event.type == sf::Event::Closed)
-                window.close();
+				// Escape key pressed - closes game
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
+					window.close();
 
-			// Escape key pressed - closes game
-			if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
-				window.close();
+				// other imputs here
 
-			// other imputs here
+				// enemy choice
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num1) )
+					//choose enemy 1
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num2) )
+					//choose enemy 2
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num3) )
+					//choose enemy 3
+
 			}
 
-			window.draw(mainBackground); //placeholder until battle background
+			window.draw(background); //placeholder until battle background
 			window.draw(playerSprite);
 		}
 
-		//shop
-		if (sceneID == 2)
+		// shop
+		if (Scene == SHOP)
 		{
 			
 		}
 
 		// magic tower
-		if (sceneID == 3)
+		if (Scene == MAGICTOWER)
 		{
 			
 		}
 
 
-		//display stuff
-		window.clear();
-
-		if (sceneID == 0)
-		{
-			window.draw(mainBackground);
-			window.draw(playerSprite);
-		}
-
-
+		//display all the things
         window.display();
     }
 
