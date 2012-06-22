@@ -103,12 +103,15 @@ int main(int argc, char **argv)
 					Scene = MAINMENU;
 
 				// enemy choice
+				//choose enemy 1
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num1) )
-					//choose enemy 1
+					
+				//choose enemy 2
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num2) )
-					//choose enemy 2
+					
+				//choose enemy 3
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num3) )
-					//choose enemy 3
+					
 
 			}
 
