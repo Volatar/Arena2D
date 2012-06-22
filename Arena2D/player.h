@@ -5,14 +5,20 @@ public:
 	player(void);
 	~player(void);
 
-	int Level;
+	int level;
 	int xp;
+	int health;
+	int currentHealth;
 
 	// stats
-	int Str;
-	int Con;
-	int Agi;
+	int str;
+	int con;
+	int agi;
 
+	int offense;
+	int defense;
+
+	//TODO: Equipment (weapon and armor and magical items)
+	//TODO: Inventory (array of equipment objects?)
 
 };
-

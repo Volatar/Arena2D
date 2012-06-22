@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include "player.h"
+#include "enemy.h"
 
 
 int main(int argc, char **argv)
@@ -19,7 +21,7 @@ int main(int argc, char **argv)
 	sf::Texture mainMenuBackgroundTexture;
 	mainMenuBackgroundTexture.loadFromFile("images/mainmenubackgroundsigns.png");
 	sf::Sprite mainMenuBackground;
-	mainMenuBackground.setTexture(mainBackgroundTexture);
+	mainMenuBackground.setTexture(mainMenuBackgroundTexture);
 	mainMenuBackground.setPosition(0.f, 0.f);
 
 	//player sprite creation
@@ -105,13 +107,22 @@ int main(int argc, char **argv)
 				// enemy choice
 				//choose enemy 1
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num1) )
-					
+				{
+					enemy enemy1(1);
+					Scene = BATTLE;
+				}
 				//choose enemy 2
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num2) )
-					
+				{
+					enemy enemy1(2);
+					Scene = BATTLE;
+				}
 				//choose enemy 3
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num3) )
-					
+				{
+					enemy enemy1(3);
+					Scene = BATTLE;
+				}
 
 			}
 
@@ -125,7 +136,7 @@ int main(int argc, char **argv)
 
 		}
 
-		// battle result
+		// post-battle results
 		if (Scene == BATTLERESULT)
 		{
 
@@ -144,7 +155,7 @@ int main(int argc, char **argv)
 		}
 
 		// game over
-		if (Sene == GAMEOVER)
+		if (Scene == GAMEOVER)
 		{
 
 		}
