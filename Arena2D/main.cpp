@@ -1,6 +1,4 @@
-#include <SFML/Graphics.hpp>
-#include "player.h"
-#include "enemy.h"
+#include "projectincludes.h"
 
 
 int main(int argc, char **argv)
@@ -35,6 +33,9 @@ int main(int argc, char **argv)
 	//enemy texture loading - sprite is created upon demand
 	sf::Texture enemySpriteTexture;
 	enemySpriteTexture.loadFromFile("images/testsprite.png");
+
+	//player data creation
+	player player1;
 
 
     while ( window.isOpen() )

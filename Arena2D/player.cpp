@@ -1,5 +1,4 @@
-#include "player.h"
-
+#include "projectincludes.h"
 
 player::player(void)
 {

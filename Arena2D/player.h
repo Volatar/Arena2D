@@ -1,4 +1,7 @@
 #pragma once
+
+#include "projectincludes.h"
+
 class player
 {
 public:
@@ -10,7 +13,6 @@ public:
 	int health;
 	int currentHealth;
 
-	// stats
 	int str;
 	int con;
 	int agi;
