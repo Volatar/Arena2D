@@ -5,9 +5,6 @@ int main(int argc, char **argv)
 {
     sf::RenderWindow window( sf::VideoMode(800, 600), "Arena2D" );
 
-	enum SCENE {MAINMENU, BATTLESELECT, BATTLE, BATTLERESULT, SHOP, MAGICTOWER, GAMEOVER};
-	SCENE Scene = MAINMENU;
-
 	//general background texture
 	sf::Texture backgroundTexture;
 	backgroundTexture.loadFromFile("images/background.png");
@@ -37,6 +34,7 @@ int main(int argc, char **argv)
 	//player data creation
 	player player1;
 
+	SCENE Scene = MAINMENU;
 
     while ( window.isOpen() )
     {

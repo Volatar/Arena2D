@@ -4,3 +4,4 @@
 #include "player.h"
 #include "enemy.h"
 #include "fight.h"
+#include "scene.h"
