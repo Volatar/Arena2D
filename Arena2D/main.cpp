@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	enemySpriteTexture.loadFromFile("images/testsprite.png");
 
 	//player data creation
-	player player1;
+	Actor player;
 
 	SCENE Scene = MAINMENU;
 
@@ -107,19 +107,19 @@ int main(int argc, char **argv)
 				//choose enemy 1
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num1) )
 				{
-					enemy enemy1(1);
+					Actor enemy(1);
 					Scene = BATTLE;
 				}
 				//choose enemy 2
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num2) )
 				{
-					enemy enemy1(2);
+					Actor enemy(2);
 					Scene = BATTLE;
 				}
 				//choose enemy 3
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Num3) )
 				{
-					enemy enemy1(3);
+					Actor enemy(3);
 					Scene = BATTLE;
 				}
 

@@ -1,13 +1,18 @@
 #include "fight.h"
 
-int fight(player player1, enemy enemy1)
+int fight(Actor player, Actor enemy)
 {
 	//fighting goes here
 
-	if ( (enemy1.currentHealth <= 0) && (player1.currentHealth >= 0) )
+	player.currentHealth = player.currentHealth - (enemy.offense - player.defense);
+	enemy.currentHealth = enemy.currentHealth - (player.offense - enemy.defense);
+
+	//check for result of exchange
+	if ( (enemy.currentHealth <= 0) && (player.currentHealth >= 0) )
 		return 2; //win
-	if (player1.currentHealth <= 0)
+	if (player.currentHealth <= 0)
 		return 3; //lose
 	else
 		return 1; //continue fighting
+	// return 0 reserved for errors
 }

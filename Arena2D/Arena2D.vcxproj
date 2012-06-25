@@ -80,15 +80,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="enemy.cpp" />
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="fight.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="player.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="enemy.h" />
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="fight.h" />
-    <ClInclude Include="player.h" />
     <ClInclude Include="projectincludes.h" />
     <ClInclude Include="scene.h" />
   </ItemGroup>

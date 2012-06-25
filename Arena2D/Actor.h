@@ -2,12 +2,13 @@
 
 #include "projectincludes.h"
 
-class player
+class Actor
 {
 public:
-	player(void);
-	~player(void);
-
+	Actor(void);
+	Actor(int);
+	~Actor(void);
+	
 	int level;
 	int xp;
 	int health;
@@ -22,5 +23,5 @@ public:
 
 	//TODO: Equipment (weapon and armor and magical items)
 	//TODO: Inventory (array of equipment objects?)
-
 };
+

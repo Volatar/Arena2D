@@ -1,7 +1,6 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "player.h"
-#include "enemy.h"
+#include "Actor.h"
 #include "fight.h"
 #include "scene.h"
