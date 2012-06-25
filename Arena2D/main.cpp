@@ -132,13 +132,20 @@ int main(int argc, char **argv)
 		// battle
 		if (Scene == BATTLE)
 		{
+			//render start
 
+			//each time player presses attack run a fight
+
+			//render post fight
+			
 		}
 
 		// post-battle results
 		if (Scene == BATTLERESULT)
 		{
-
+			//xp gain
+			//level up if applicable
+			//loot
 		}
 
 		// shop
