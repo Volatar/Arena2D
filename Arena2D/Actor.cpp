@@ -17,7 +17,7 @@ Actor::Actor(void)
 	defense = level * 5;
 }
 
-Actor::Actor(int lvl)
+void Actor::setLevel(int lvl)
 {
 	level = lvl;
 	xp = 0;

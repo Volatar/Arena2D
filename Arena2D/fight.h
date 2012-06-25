@@ -1,5 +1,5 @@
 #pragma once
 
-#include "projectincludes.h"
+#include "Actor.h"
 
 int fight(Actor, Actor);

@@ -1,13 +1,11 @@
 #pragma once
 
-#include "projectincludes.h"
-
 class Actor
 {
 public:
 	Actor(void);
-	Actor(int);
 	~Actor(void);
+	void setLevel(int);
 	
 	int level;
 	int xp;
