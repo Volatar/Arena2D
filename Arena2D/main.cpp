@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 	enemySpriteTexture.loadFromFile("images/testsprite.png");
 	sf::Sprite enemySprite;
 	enemySprite.setTexture(enemySpriteTexture);
-	enemySprite.setPosition(400.f, 200.f);
+	enemySprite.setPosition(500.f, 200.f);
 	sf::Vector2f enemySpritePos;
 
 	//player data creation
@@ -40,6 +40,15 @@ int main(int argc, char **argv)
 
 	//enemy initialization
 	Actor enemy;
+
+	//text objects for battle display
+	sf::Text playerHealth;
+	playerHealth.setPosition(200, 400);
+	sf::Text enemyHealth;
+	enemyHealth.setPosition(500, 400);
+
+	std::string tempString;
+	std::stringstream tempStringStream;
 
 	SCENE Scene = MAINMENU;
 
@@ -140,8 +149,9 @@ int main(int argc, char **argv)
 		// battle
 		if (Scene == BATTLE)
 		{
-			//render start
-
+			
+			//clear tempStringStream
+			tempStringStream.str("");
 
 			//each time player presses attack run a fight
 			while ( window.pollEvent(event) )
@@ -153,12 +163,26 @@ int main(int argc, char **argv)
 				// Escape key pressed - closes game
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape) )
 					window.close();
+
+				//attack key
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Return) )
+					fight(player, enemy);
 			}
 
-			//fight(player, enemy);
+			//set health text
+			tempStringStream << player.currentHealth;
+			tempString = tempStringStream.str();
+			playerHealth.setString(tempString);
+			tempStringStream << enemy.currentHealth;
+			tempString = tempStringStream.str();
+			enemyHealth.setString(tempString);
 
-			//render post fight
-
+			//render
+			window.draw(background);
+			window.draw(playerSprite);
+			window.draw(enemySprite);
+			window.draw(playerHealth);
+			window.draw(enemyHealth);
 
 		}
 
