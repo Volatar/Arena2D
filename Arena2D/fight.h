@@ -2,4 +2,4 @@
 
 #include "projectincludes.h"
 
-int fight(player, enemy);
+int fight(Actor, Actor);

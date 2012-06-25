@@ -2,8 +2,6 @@
 
 int fight(Actor player, Actor enemy)
 {
-	//fighting goes here
-
 	player.currentHealth = player.currentHealth - (enemy.offense - player.defense);
 	enemy.currentHealth = enemy.currentHealth - (player.offense - enemy.defense);
 

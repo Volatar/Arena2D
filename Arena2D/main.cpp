@@ -135,6 +135,7 @@ int main(int argc, char **argv)
 			//render start
 
 			//each time player presses attack run a fight
+			fight(player, enemy);
 
 			//render post fight
 			
