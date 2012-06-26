@@ -17,6 +17,7 @@
 *.sdf
 *.suo
 /Arena2D/Debug/
+/Arena2D/Release/
 /ipch/
 
 #compiled bianaries
