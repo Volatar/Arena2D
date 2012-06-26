@@ -167,12 +167,20 @@ int main(int argc, char **argv)
 				//attack key
 				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Return) )
 					fight(player, enemy);
+				
+				//debug code
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Z) )
+					player.currentHealth--;
+				if ( (event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::X) )
+					enemy.currentHealth--;
 			}
 
 			//set health text
+			tempStringStream.str("");
 			tempStringStream << player.currentHealth;
 			tempString = tempStringStream.str();
 			playerHealth.setString(tempString);
+			tempStringStream.str("");
 			tempStringStream << enemy.currentHealth;
 			tempString = tempStringStream.str();
 			enemyHealth.setString(tempString);
