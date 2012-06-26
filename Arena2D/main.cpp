@@ -149,9 +149,6 @@ int main(int argc, char **argv)
 		// battle
 		if (Scene == BATTLE)
 		{
-			
-			//clear tempStringStream
-			tempStringStream.str("");
 
 			//each time player presses attack run a fight
 			while ( window.pollEvent(event) )
